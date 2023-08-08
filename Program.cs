@@ -1,10 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-
-namespace ConsoleCalculator
+﻿namespace ConsoleCalculator
 {
     class Program
     {
+        private static List<string> history = new List<string>();
+
         static void Main(string[] arg)
         {
             bool quit = false;
@@ -15,7 +14,8 @@ namespace ConsoleCalculator
                 Console.WriteLine("2. (-) Subtraction");
                 Console.WriteLine("3. (x) Multiplication");
                 Console.WriteLine("4. (/) Division");
-                Console.WriteLine("5. Quit");
+                Console.WriteLine("5. Show History");
+                Console.WriteLine("6. Quit");
 
                 int choice = int.Parse(Console.ReadLine());
 
@@ -34,6 +34,9 @@ namespace ConsoleCalculator
                         PerformCalculation(Division);
                         break;
                     case 5:
+                        PrintHistory();
+                        break;
+                    case 6:
                         quit = true;
                         break;
                     default:
@@ -43,11 +46,35 @@ namespace ConsoleCalculator
             }
         }
 
+        static void PrintHistory()
+        {
+            bool showingHistory = true;
+
+            while (showingHistory)
+            {
+                Console.WriteLine("History List:");
+                foreach (string calculation in history)
+                {
+                    Console.WriteLine(calculation);
+                }
+                Console.WriteLine("1. Back to Menu");
+                if(int.Parse(Console.ReadLine()) == 1)
+                {
+                    showingHistory = false;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid option. Please try again.");
+                }
+            }
+        }
+
         private static void PerformCalculation(Func<double, double, double> operation)
         {
             Console.WriteLine("Enter the first number: ");
             double num1 = double.Parse(Console.ReadLine());
             double result = num1;
+
             bool continueCalculation = true;
 
             while (continueCalculation)
@@ -64,7 +91,9 @@ namespace ConsoleCalculator
                     case 1:
                         Console.WriteLine("Enter the next number: ");
                         double num2 = double.Parse(Console.ReadLine());
-                        result = operation(result, num2);
+                        num1 = result;
+                        result = operation(num1, num2);
+                        AddToHistoryList(operation, num1, num2, result);
                         break;
                     case 2:
                         Console.WriteLine("Result: " + result);
@@ -98,6 +127,29 @@ namespace ConsoleCalculator
         {
             return a / b;
         }
+
+        static void AddToHistoryList(Func<double, double, double> operation, double num1, double num2, double result)
+        {
+            if (operation == Addition)
+            {
+                history.Add(num1 + "+" + num2 + "=" + result);
+            }
+            else if (operation == Substraction)
+            {
+                history.Add(num1 + "-" + num2 + "=" + result);
+            }
+            else if (operation == Multiplication)
+            {
+                history.Add(num1 + "x" + num2 + "=" + result);
+            }
+            else if (operation == Division)
+            {
+                history.Add(num1 + "/" + num2 + "=" + result);
+            }
+
+        }
+
+
     }
 
 }
