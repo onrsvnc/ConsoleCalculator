@@ -1,0 +1,15 @@
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\bin\Debug\net7.0\ConsoleCalculator.exe
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\bin\Debug\net7.0\ConsoleCalculator.deps.json
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\bin\Debug\net7.0\ConsoleCalculator.runtimeconfig.json
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\bin\Debug\net7.0\ConsoleCalculator.dll
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\bin\Debug\net7.0\ConsoleCalculator.pdb
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ConsoleCalculator.csproj.AssemblyReference.cache
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ConsoleCalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ConsoleCalculator.AssemblyInfoInputs.cache
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ConsoleCalculator.AssemblyInfo.cs
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ConsoleCalculator.csproj.CoreCompileInputs.cache
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ConsoleCalculator.dll
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\refint\ConsoleCalculator.dll
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ConsoleCalculator.pdb
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ConsoleCalculator.genruntimeconfig.cache
+C:\Users\Onur Sevinç 4ARC\Documents\GitHub\ConsoleCalculator\obj\Debug\net7.0\ref\ConsoleCalculator.dll
