@@ -17,31 +17,36 @@
                 Console.WriteLine("5. Show History");
                 Console.WriteLine("6. Quit");
 
-                int choice = int.Parse(Console.ReadLine());
-
-                switch (choice)
+                if (int.TryParse(Console.ReadLine(), out int choice))
                 {
-                    case 1:
-                        PerformCalculation(Addition);
-                        break;
-                    case 2:
-                        PerformCalculation(Substraction);
-                        break;
-                    case 3:
-                        PerformCalculation(Multiplication);
-                        break;
-                    case 4:
-                        PerformCalculation(Division);
-                        break;
-                    case 5:
-                        PrintHistory();
-                        break;
-                    case 6:
-                        quit = true;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid choice. Please try again.");
-                        break;
+                    switch (choice)
+                    {
+                        case 1:
+                            PerformCalculation(Addition);
+                            break;
+                        case 2:
+                            PerformCalculation(Substraction);
+                            break;
+                        case 3:
+                            PerformCalculation(Multiplication);
+                            break;
+                        case 4:
+                            PerformCalculation(Division);
+                            break;
+                        case 5:
+                            PrintHistory();
+                            break;
+                        case 6:
+                            quit = true;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Please try again.");
                 }
             }
         }
@@ -58,7 +63,7 @@
                     Console.WriteLine(calculation);
                 }
                 Console.WriteLine("1. Back to Menu");
-                if(int.Parse(Console.ReadLine()) == 1)
+                if (int.TryParse(Console.ReadLine(), out int choice) && choice == 1)
                 {
                     showingHistory = false;
                 }
@@ -72,40 +77,50 @@
         private static void PerformCalculation(Func<double, double, double> operation)
         {
             Console.WriteLine("Enter the first number: ");
-            double num1 = double.Parse(Console.ReadLine());
-            double result = num1;
-
-            bool continueCalculation = true;
-
-            while (continueCalculation)
+            if (int.TryParse(Console.ReadLine(), out int num1))
             {
-                Console.WriteLine("Select an option:");
-                Console.WriteLine("1. Add Number");
-                Console.WriteLine("2. Show Result");
-                Console.WriteLine("3. Back To Menu");
+                double result = num1;
 
-                int option = int.Parse(Console.ReadLine());
+                bool continueCalculation = true;
 
-                switch (option)
+                while (continueCalculation)
                 {
-                    case 1:
-                        Console.WriteLine("Enter the next number: ");
-                        double num2 = double.Parse(Console.ReadLine());
-                        num1 = result;
-                        result = operation(num1, num2);
-                        AddToHistoryList(operation, num1, num2, result);
-                        break;
-                    case 2:
-                        Console.WriteLine("Result: " + result);
-                        break;
-                    case 3:
-                        continueCalculation = false;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
+                    Console.WriteLine("Select an option:");
+                    Console.WriteLine("1. Add Number");
+                    Console.WriteLine("2. Show Result");
+                    Console.WriteLine("3. Back To Menu");
+
+                    if (int.TryParse(Console.ReadLine(), out int option))
+                    {
+                        switch (option)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter the next number: ");
+                                if (int.TryParse(Console.ReadLine(), out int num2))
+                                {
+                                    num1 = (int)result;
+                                    result = operation(num1, num2);
+                                    AddToHistoryList(operation, num1, num2, result);
+                                }
+                                break;
+                            case 2:
+                                Console.WriteLine("Result: " + result);
+                                break;
+                            case 3:
+                                continueCalculation = false;
+                                break;
+                            default:
+                                Console.WriteLine("Invalid option. Please try again.");
+                                break;
+                        }
+                    }
                 }
             }
+            else
+            {
+                Console.WriteLine("Invalid option. Please try again.");
+            }
+
         }
 
         static double Addition(double a, double b)
